@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+<img id="chucknorris2" src="static/images/chucknorris2.png">
+<p id="titolo">Battute su Chuck Norris</p>
+<form id="form">
+    <select id ="selezione" name="opzioni">
+        <option value="animal">Animale</option>
+        <option value="career">Carriera</option>
+        <option value="celebrity">Celebrità</option>
+        <option value="dev">Developer</option>
+        <option value="explicit">Esplicite</option>
+        <option value="fashion">Moda</option>
+        <option value="food">Cibo</option>
+        <option value="history">Storia</option>
+        <option value="money">Money</option>
+        <option value="movie">Film</option>
+        <option value="music">Musica</option>
+        <option value="political">Politica</option>
+        <option value="religion">Religione</option>
+        <option value="science">Scienza</option>
+        <option value="sport">Sport</option>
+        <option value="travel">Viaggi</option>
+    </select>
+    <input type="submit" value="Invia" id="bottone">
+</form>
+<p id="risposta"></p>
+<img id="chucknorris" src="static/images/chucknorris.jpeg"> 
+    <script>
+        let caricabattute = document.querySelector("#bottone")
+        let form = document.querySelector("#form")
+        let categorie = [
+        "animal", 
+        "career", 
+        "celebrity", 
+        "dev", 
+        "explicit", 
+        "fashion", 
+        "food", 
+        "history", 
+        "money", 
+        "movie", 
+        "music", 
+        "political", 
+        "religion", 
+        "science", 
+        "sport", 
+        "travel"
+    ]
+
+
+        form.addEventListener("submit", function(e){
+            e.preventDefault();
+            let categoria = document.querySelector("select[name=opzioni]").value
+            let url = "https://api.chucknorris.io/jokes/random"
+            if(categoria != ""){
+                url = url + "?category=" + categoria
+            }
+            function thencallBack(response){
+                 if(response.status == 200){
+                    return response.json();
+                 }
+                }
+            function catchcallBack(error){
+                console.log(error)
+            }
+            function finalcallBack(data){
+                let risposta = document.querySelector("#risposta")
+                risposta.innerHTML = data.value
+            }
+            fetch(url).then(thencallBack).then(finalcallBack).catch(catchcallBack)
+        })
+
+
+
+    </script>
+</body>
+</html>

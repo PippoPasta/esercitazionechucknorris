@@ -1,0 +1,45 @@
+@import url('https://fonts.cdnfonts.com/css/lemonmilk');
+
+            
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: yellow;
+}
+
+#risposta{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    background-color: red;
+    color: white;
+    padding: 2px;
+}
+
+#titolo{
+    font-size: 50px;
+    font-family: 'Lemon/Milk', sans-serif;
+    color: red;
+    font-weight: bold;
+}
+
+
+#chucknorris{
+    border-radius: 5px;
+    width: 300px;
+    height: 300px;
+}
+
+#selezione{
+    font-family: monospace;
+    background-color: blue;
+    color: white;
+    padding: 10px;
+}
+
+#bottone{
+    background-color: lightgreen;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100px;
+}
